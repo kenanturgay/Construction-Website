@@ -1,0 +1,60 @@
+.menu-item {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px; /* Menü öğeleri arasına boşluk koymak için */
+    cursor: pointer;
+  }
+  
+  .menu-item::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, red, blue, green, yellow, red);
+    background-size: 400% 400%;
+    border-radius: 50%;
+    z-index: -1;
+    animation: rgb-glow 3s linear infinite;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .menu-item:hover::before {
+    opacity: 1;
+  }
+  
+  @keyframes rgb-glow {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .menu-item:active {
+    animation: flash 0.2s linear;
+  }
+  
